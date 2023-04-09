@@ -1,4 +1,4 @@
-package com.example.myroomdatabase.db;
+package com.example.myroomdatabase.db.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -10,7 +10,7 @@ import com.example.myroomdatabase.util.Constants;
 import java.io.Serializable;
 
 @Entity(tableName = Constants.TABLE_NAME)
-public class Rec implements Serializable {
+public class Album implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private long album_id;
@@ -21,14 +21,14 @@ public class Rec implements Serializable {
     private String artist;
     private int year;
 
-    public Rec(String title, String artist, int year) {
+    public Album(String title, String artist, int year) {
         this.title = title;
         this.artist = artist;
         this.year = year;
     }
 
     @Ignore
-    public Rec() {}
+    public Album() {}
 
     public long getAlbum_id() {
         return album_id;
@@ -67,12 +67,12 @@ public class Rec implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Rec rec = (Rec) o;
+        Album album = (Album) o;
 
-        if (album_id != rec.album_id) return false;
-        if (year != rec.year) return false;
-        if (title != null ? !title.equals(rec.title) : rec.title != null) return false;
-        return artist != null ? artist.equals(rec.artist) : rec.artist == null;
+        if (album_id != album.album_id) return false;
+        if (year != album.year) return false;
+        if (title != null ? !title.equals(album.title) : album.title != null) return false;
+        return artist != null ? artist.equals(album.artist) : album.artist == null;
     }
 
     @Override

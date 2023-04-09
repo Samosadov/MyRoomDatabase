@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myroomdatabase.db.Rec;
+import com.example.myroomdatabase.db.model.Album;
 
 import java.util.List;
 
-public class RecsAdapter extends RecyclerView.Adapter<RecsAdapter.BeanHolder> {
+public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.BeanHolder> {
 
-    private List<Rec> list;
+    private List<Album> list;
     private Context context;
     private LayoutInflater layoutInflater;
     private OnRecItemClick onRecItemClick;
 
-    public RecsAdapter(List<Rec> list, Context context) {
+    public AlbumsAdapter(List<Album> list, Context context) {
         layoutInflater = LayoutInflater.from(context);
         this.list = list;
         this.context = context;
@@ -28,13 +28,13 @@ public class RecsAdapter extends RecyclerView.Adapter<RecsAdapter.BeanHolder> {
 
     @NonNull
     @Override
-    public RecsAdapter.BeanHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = layoutInflater.inflate(android.R.layout.note_list_item, parent, false);
+    public AlbumsAdapter.BeanHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = layoutInflater.inflate(android.R.layout.rec_list_item, parent, false);
         return new BeanHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecsAdapter.BeanHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AlbumsAdapter.BeanHolder holder, int position) {
 
     }
 
@@ -43,7 +43,7 @@ public class RecsAdapter extends RecyclerView.Adapter<RecsAdapter.BeanHolder> {
         return 0;
     }
 
-    private interface OnRecItemClick {
+    public interface OnRecItemClick {
         void onRecClick(int pos);
     }
 
